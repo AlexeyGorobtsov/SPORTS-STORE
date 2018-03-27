@@ -1,5 +1,6 @@
-<div class="navbar navbar-inverse bg-inverse">
+<div class="navbar navbar-light bg-light">
   <a class="navbar navbar-brand">SPORTS STORE</a>
+  <cart-summary></cart-summary>
 </div>
 <div class="row">
   <div class="col-md-3 p-1">
@@ -22,7 +23,13 @@
           {{ product.price | currency: "USD":true:"2.2-2" }}
         </span>
       </h4>
-      <div class="card-text p-1">{{ product.description }}</div>
+      <div class="card-text p-1">
+        {{ product.description }}
+        <button class="btn btn-succes btn-sm pull-right"
+          (click)="addProductToCart(product)">
+                Add To Cart
+        </button>
+      </div>
     </div>
     <div class="form-inline pull-left m-1">
       <select class="form-control" [value]="productsPerPage"
